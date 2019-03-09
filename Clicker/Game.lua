@@ -49,13 +49,23 @@ function scene:show( event )
 
           --- Main object
 
-        local ballon = display.newCircle(  CSX, CSY - 1369, 150 )
+        local ballon = display.newCircle(  CSX, CSY , 100 )
 
 
         ----Platfor Group objects
 
-        local platform_1 = display.newRect( platforms,CSX , CH + 1080,  CW, 200 )
-        local platform_2 = display.newRect( platforms,CSX , CH - 2160,  CW, 200 )
+        local platform_1 = display.newRect( platforms, CSX , CSY + (CH/2),  CW, 200 )
+        local platform_2 = display.newRect( platforms, CSX , CSY - (CH/2) ,  CW, 200 )
+
+
+        --[[ 
+
+                GAME NEEDS ADAPTIVITING
+
+               [[ !!ERROR!! in platforms width]]
+       
+        --]]
+
 
         --- ADD physics
         local physics = require("physics")
