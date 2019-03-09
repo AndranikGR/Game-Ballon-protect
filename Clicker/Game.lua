@@ -25,6 +25,8 @@ function scene:show( event )
     elseif ( phase == "did" ) then
 
    ---Game Main code ---------------------------------------------------------------
+    
+
     display.setStatusBar(display.HiddenStatusBar)
 
             ---- Main constants
@@ -61,6 +63,8 @@ function scene:show( event )
         physics.setGravity( 0, 6 )
 
         physics.addBody( ballon )
+        physics.addBody(platform_1, "static")
+        physics.addBody(platform_2, "static")
 
 
     end

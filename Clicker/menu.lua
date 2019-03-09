@@ -27,17 +27,20 @@ function scene:show( event )
         display.setStatusBar( display.HiddenStatusBar)
 
             local start = display.newText("Start Game", display.contentCenterX,display.contentCenterY, native.systemFont, 170)
+            local scoreText = display.newText("Your Score", display.contentCenterX,display.contentCenterY + 500, native.systemFontn, 140)
+            --local score = display.newText(TapFinal, display.contentCenterX,display.contentCenterY + 250, native.systemFontn, 40)
+
         -- On click to "Start Game function"
             function GoToGame()
                 composer.gotoScene("Game")
-
+                start:removeSelf()
+                scoreText:removeSelf()
+                --score:removeSelf()
             end
 -- Event listener
             start:addEventListener("touch", GoToGame )
 
 
-            local scoreText = display.newText("Your Score", display.contentCenterX,display.contentCenterY + 500, native.systemFontn, 140)
-            --local score = display.newText(TapFinal, display.contentCenterX,display.contentCenterY + 250, native.systemFontn, 40)
     end
 end
  
@@ -47,13 +50,7 @@ function scene:hide( event )
  
     local sceneGroup = self.view
     local phase = event.phase
-    if ( phase == "will" ) then
-        -- Code here runs when the scene is on screen (but is about to go off screen)
- 
-    elseif ( phase == "did" ) then
-        -- Code here runs immediately after the scene goes entirely off screen
- 
-    end
+   
 
 end
  
