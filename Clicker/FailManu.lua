@@ -25,22 +25,28 @@ function scene:show( event )
 
     -- Runs menu code 
         display.setStatusBar( display.HiddenStatusBar)
+        --- Menu objects
 
-            local start = display.newText("Start Game", display.contentCenterX,display.contentCenterY, native.systemFont, 140)
-            local ScoreINF = display.newText("Your Score", display.contentCenterX,display.contentCenterY + 500, native.systemFontn, 120)
-           --- local Record = display.newText(TapFinal, display.contentCenterX,display.contentCenterY + 250, native.systemFontn, 40)
+        local GameOver = display.newText("Game Over!", display.contentCenterX,display.contentCenterY - 200, native.systemFont, 140)
+        local RestartButton = display.newText("Restart", display.contentCenterX, (display.contentCenterY - 200) + 600, native.systemFont, 140)
+        local MenuButton = display.newText("Back to manu",display.contentCenterX, (display.contentCenterY - 200) + 800, native.systemFont, 140 )
 
-        -- On click to "Start Game function"
-            function GoToGame()
-                composer.gotoScene("Game")
-                start:removeSelf()
-                ScoreINF:removeSelf()
-                --Record:removeSelf()
-            end
--- Event listener
-            start:addEventListener("touch", GoToGame )
-
-
+        ----------------MANU LOGIC --------------------------------
+        function RestartButtonClikc()
+            composer.gotoScene("Game")
+            GameOver:removeSelf()
+            RestartButton:removeSelf()
+            MenuButton:removeSelf()
+        end
+        function BackToManuClick()
+            composer.gotoScene("menu")
+            GameOver:removeSelf()
+            RestartButton:removeSelf()
+            MenuButton:removeSelf()
+        end
+----------------------EVENTS--------------------------------------
+        RestartButton:addEventListener("touch", RestartButtonClikc )
+        MenuButton:addEventListener("touch", BackToManuClick )
     end
 end
  
